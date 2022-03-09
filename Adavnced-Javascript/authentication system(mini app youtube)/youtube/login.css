@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    color: white;
+    background-color: black;
+font-family: sans-serif;
+}
+
+#loginform{
+
+    width: 400px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: grey;
+    margin-top: 200px;
+padding: 10px;
+}
+
+#loginform>:nth-child(n){
+    width: 90%;
+border-radius: 10px; 
+
+    height: 36px;
+    margin-bottom: 10px;
+}
+#loginform>input{
+    font-size: 22px;
+    padding-left: 10px;
+}
+
+#loginform>label{
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+#loginform>button{
+    font-size: 25px;
+    color: white;
+background-color: black;
+}

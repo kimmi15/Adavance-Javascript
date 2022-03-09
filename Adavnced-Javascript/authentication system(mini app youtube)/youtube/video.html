@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Video page</title>
+<link rel="stylesheet" href="video.css">
+
+
+</head>
+<body>
+    <div class="searchBar">
+        <div class="logo">
+            <i id="m" class="topi"><img src="asset/menu.png" alt=""></i>
+
+
+            <img src="asset/yt_logo_rgb_light.png" id="yt" alt="">
+
+
+        </div>
+
+        <div class="search">
+            <form action="" onsubmit="return false">
+                <input type="text" id="search">
+                <button><i class="topi" onclick="searchvideo()"><img src="asset/search-interface-symbol.png" alt=""></i></button>
+            </form>
+        </div>
+        <div class="icon">
+            <i class="topi"><img src="asset/video-player.png" alt=""></i>
+            <i class="topi"><img src="asset/apps.png" alt=""></i>
+            <i class="topi"><img src="asset/notification.png" alt=""></i>
+           
+            
+        </div>
+
+
+    </div>
+
+    <div id="main">
+
+        <div id="video_details"></div>
+
+        <div id="result"></div>
+    </div>
+</body>
+</html>
+
+<script>
+
+document.getElementById("yt").addEventListener("click",()=>{
+    window.location.href="youtubehome.html"
+})
+
+
+    //let video_data=JSON.parse(localStorage.getItem("clicked_video"))
+    
+    
+    let {videoId,y:x,snippet:{title}}=JSON.parse(localStorage.getItem("clicked_video"))
+
+    let video_div=document.getElementById("video_details")
+
+
+    
+let iframe=document.createElement('iframe')
+
+iframe.src=`https://www.youtube.com/embed/${videoId}`
+
+iframe.setAttribute("allowfullscreen","true")
+
+let p=document.createElement("p")
+p.innerText=title
+
+let divs=document.createElement("div")
+divs.append(iframe,p)
+video_div.append(divs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let div=document.getElementById("result")
+// let searchvideo=()=>{
+    
+//     let b= document.getElementById("search").value
+//     // console.log(b)
+//     appendvideo(b)
+
+// }
+
+let a=JSON.parse(localStorage.getItem("all_video"))
+
+    
+    const appendvideo = (arr) =>{
+    div.innerHTML=null
+    
+        arr.forEach(({snippet,videoId})=>{
+    
+    let title=document.createElement("p")
+    title.innerText=snippet.title
+    
+    let tum=document.createElement("img")
+    tum.src=snippet.thumbnails.medium.url
+    
+    let divt=document.createElement("div")
+    divt.append(tum,title)
+    div.append(divt)
+    
+    
+    
+    
+    
+    let data_tosend={
+    
+        // snippet:snippet,
+        // videoId:videoId//when key value pair is same
+        snippet,
+        videoId
+        
+    
+    }
+    
+    divt.onclick=()=>{
+        showvideo(data_tosend)
+    }
+    
+    
+        })
+    
+    }
+
+    appendvideo(a)
+    
+    let showvideo=(data)=>{
+        localStorage.setItem("clicked_video",JSON.stringify(data))
+        window.location.href="video.html"
+    }
+
+
+</script>

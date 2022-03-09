@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #n{
+        display: inline-block;
+        width: 100px;
+        color: white;
+        font-size: large;
+        text-align: center;
+
+    }
+</style>
+</head>
+<body>
+    <button id="d">Throw dice</button>
+    <div id="n"></div>
+</body>
+</html>
+
+<script>
+document.querySelector('#d').addEventListener('click',function(){
+   let x= Math.floor((Math.random() * 6) + 1);
+// console.log(x)
+document.querySelector('#n').textContent=x
+
+switch(x){
+    case 1:
+    document.querySelector('#n').style.backgroundColor="green"
+
+        break
+        case 2:
+            
+    document.querySelector('#n').style.backgroundColor="blue"
+        break
+        case 3:
+            
+    document.querySelector('#n').style.backgroundColor="pink"
+        break
+        case 4:
+            
+    document.querySelector('#n').style.backgroundColor="grey"
+        break
+        case 5:
+    document.querySelector('#n').style.backgroundColor="yellow"
+        break
+        case 6:
+            
+    document.querySelector('#n').style.backgroundColor="red"
+        break
+        
+}
+
+})
+
+</script>

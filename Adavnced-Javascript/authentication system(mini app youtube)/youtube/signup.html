@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up page</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body>
+    <form id="loginform" >
+
+
+        <h2 style="text-align: center;"> Sign in</h2>
+
+
+
+
+
+        <label for="">Name</label>
+        <input id="name" type="text">
+        <label> Email </label>
+        <input id="email" type="email">
+
+        <label for="">User Name</label>
+        <input id="username" type="text">
+        <label> Password </label>
+        <input id="password" type="password">
+
+
+        <label for="">Mobile</label>
+        <input id="mobile" type="text">
+        <label for="">Description</label>
+        <input id="description" type="text">
+
+
+        <button id="login" onclick="register(event)">Sign up</button>
+
+        <h3 id="signup" style="color: #e54141;">Login</h3>
+
+    </form>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+<script>
+   document.getElementById("signup").addEventListener("click",()=>{
+window.location.href="login.html"
+   })
+
+
+    let register = async (ev) => {
+        ev.preventDefault()
+        try {
+         let  register_data = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+                username: document.getElementById("username").value,
+                mobile: document.getElementById("mobile").value,
+                description: document.getElementById("description").value
+
+            };
+
+            register_data = JSON.stringify(register_data)
+            console.log(register_data)
+            let reg_api = `https://masai-api-mocker.herokuapp.com/auth/register`;
+
+let response = await fetch(reg_api, {
+    method: "POST",
+    body: register_data,
+    headers: {
+        "Content-Type": "application/json",
+    },
+});
+let data = await response.json()
+console.log(data)
+        }
+        catch (e) {
+            console.log(e)
+        }
+
+
+       
+
+    }
+
+
+
+
+</script>

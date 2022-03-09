@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js datatype learning app</title>
+<style>
+
+    #main1{
+        width: 60%;
+        
+        margin: auto;
+        display: flex;
+
+        margin-top: 70px;
+        
+        border: 2px solid black;
+    }
+
+    #container{
+        border: 2px solid black;
+        
+        background-color: gainsboro;
+        
+width: fit-content;
+padding: 10px;
+    }
+    button{
+        display: block;
+        margin: auto;
+    width: 100%;
+        background-color: red;
+        color: white;
+        font-size: 32px;
+        margin-top: 25px;
+        font-weight: 500;
+        border-radius: 10px;
+
+    }
+    #con2{
+        padding: 10px;
+        background-color: red;
+        color: gainsboro;
+    }
+</style>
+
+</head>
+<body>
+
+    <div id="main1">
+    <div id="container">
+
+        <button>Objects</button>
+        <button>Arrays</button>
+        <button>Functions</button>
+        <button>null</button>
+        <button>undefined</button>
+    </div>
+
+    <div id="con2">
+
+    
+    </div>
+
+</div>
+</body>
+</html>
+
+<script>
+
+document.querySelector("#container>:nth-child(3)").addEventListener("click",
+function(){
+
+    
+    document.querySelector("#con2").textContent=""
+    var h=document.createElement('h1')
+h.textContent="Let's learn javascript"
+
+
+var a=document.createElement('h2')
+a.textContent="1. Javasrcipt function allows you to define a block of code,give it a name and then execute it asmany times as you want."
+
+var b=document.createElement('h2')
+b.textContent="2.A function can be defined using function keyword and can be executed using () operator"
+
+var c=document.createElement('h2')
+c.textContent="3.If function is null this means that function is empty."
+
+var d=document.createElement('h2')
+d.textContent="4.we can invoke function before initialisation."
+
+
+var e=document.createElement('h2')
+e.textContent="we can pass some value in function and return value from it"
+
+    document.querySelector("#con2").append(h,a,b,c,d,e)
+   
+
+})
+
+document.querySelector("#container>:nth-child(1)").addEventListener("click",
+function(){
+
+    
+    document.querySelector("#con2").textContent=""
+    var h=document.createElement('h1')
+h.textContent="Let's learn javascript"
+
+
+var a=document.createElement('h2')
+a.textContent="1. An object type is simply a collection of properties in the form of name and value pairs."
+
+var b=document.createElement('h2')
+b.textContent="2.It is used to store various keyed collections and more complex entities."
+
+var c=document.createElement('h2')
+c.textContent="3.Objects can be created using the Object() constructor or the object initializer / literal syntax."
+
+
+    document.querySelector("#con2").append(h,a,b,c)
+   
+
+})
+
+document.querySelector("#container>:nth-child(2)").addEventListener("click",
+function(){
+
+    
+    document.querySelector("#con2").textContent=""
+    var h=document.createElement('h1')
+h.textContent="Let's learn javascript"
+
+
+var a=document.createElement('h2')
+a.textContent="1.An array is an ordered list of values."
+
+var b=document.createElement('h2')
+b.textContent="2.Each value is called an element specified by an index."
+
+var c=document.createElement('h2')
+c.textContent="3.An array is an object."
+
+    document.querySelector("#con2").append(h,a,b,c)
+   
+
+})
+
+
+
+document.querySelector("#container>:nth-child(5)").addEventListener("click",
+function(){
+    
+    document.querySelector("#con2").textContent=""
+    var h=document.createElement('h1')
+h.textContent="Let's learn javascript"
+
+
+var a=document.createElement('h2')
+a.textContent="1.Unassigned variables are initialized by JavaScript with a default value of undefined."
+
+var b=document.createElement('h2')
+b.textContent="2. undefined means a variable has been declared but has not yet been assigned a value."
+
+
+
+    document.querySelector("#con2").append(h,a,b)
+   
+
+})
+
+
+document.querySelector("#container>:nth-child(4)").addEventListener("click",
+function(){
+
+    document.querySelector("#con2").textContent=""
+    var h=document.createElement('h1')
+h.textContent="Let's learn javascript"
+
+
+var a=document.createElement('h2')
+a.textContent="1.The value null represents the intentional absence of any object value."
+
+var b=document.createElement('h2')
+b.textContent="2.It can be assigned to a variable as a representation of no value."
+
+var c=document.createElement('h2')
+c.textContent="3.null is an object."
+
+    document.querySelector("#con2").append(h,a,b,c)
+   
+
+})
+
+</script>

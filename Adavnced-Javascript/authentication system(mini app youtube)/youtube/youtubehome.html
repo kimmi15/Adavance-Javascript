@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+
+    <div class="searchBar">
+        <div class="logo">
+            <i id="m" class="topi"><img src="asset/menu.png" alt=""></i>
+
+
+            <img src="asset/yt_logo_rgb_light.png" alt="">
+
+
+        </div>
+
+        <div class="search">
+            <form action="" onsubmit="return false">
+                <input type="text" id="search">
+                <button><i class="topi" onclick="searchvideo()"><img src="asset/search-interface-symbol.png" alt=""></i></button>
+            </form>
+        </div>
+        <div class="icon">
+            <i class="topi"><p id="profile">Sign up</p></i>
+            <i class="topi"><img src="asset/apps.png" alt=""></i>
+            <i class="topi"><img src="asset/notification.png" alt=""></i>
+           
+            
+        </div>
+
+
+    </div>
+
+
+
+    <div class="mainbody">
+
+        <div class="categories">
+
+            <div class="side">
+             
+                <span class="sidecontent">   <i><img src="asset/home.png" alt=""></i> 
+                    <span>Home</span>
+                </span>
+                <span class="sidecontent">   <i><img src="asset/explore.png" alt=""></i> 
+                <span>Explore</span>
+            </span>
+            <span class="sidecontent">   <i><img src="asset/subscribe.png" alt=""></i> 
+            <span>Subscription</span>
+        </span>
+              
+
+            </div>
+                <div class="side">
+                   
+                    <span class="sidecontent">   <i><img src="asset/library.png" alt=""></i> 
+                        <span>Library</span>
+                    </span>
+
+                    
+                    <span class="sidecontent">   <i><img src="asset/history.png" alt=""></i> 
+                        <span>History</span>
+                    </span>
+
+                    
+                    <span class="sidecontent">   <i><img src="asset/film.png" alt=""></i> 
+                        <span>Your Videos</span>
+                    </span>
+
+                    
+                    <span class="sidecontent">   <i><img src="asset/wall-clock.png" alt=""></i> 
+                        <span>Watch later</span>
+                    </span>
+                    
+                    <span class="sidecontent">   <i><img src="asset/like.png" alt=""></i> 
+                        <span>Liked videos</span>
+                    </span>
+
+                    
+                </div>
+
+<div class="side">
+    
+<div id="sub">SUBSCRIPTION</div>
+                   
+    <span class="sidecontent">   <i>Si</i> 
+        <span>Simplilearn</span>
+    </span>
+
+    
+    <span class="sidecontent">   <i>Al</i> 
+        <span>Al jazeera English</span>
+    </span>
+
+    
+    <span class="sidecontent">   <i>h</i> 
+        <span>WION</span>
+    </span>
+
+    
+    <span class="sidecontent">   <i>Un</i> 
+        <span>Unacademy Live</span>
+    </span>
+    
+    <span class="sidecontent">   <i>Aa</i> 
+        <span>Aaj tak</span>
+    </span>
+
+    
+</div>
+         
+
+<div class="side">
+    
+    <div id="sub">MORE FROM YOUTUBE</div>
+                       
+        <span class="sidecontent">   <i><img src="asset/youtube.png" alt=""></i> 
+            <span>YouTube Premium</span>
+        </span>
+    
+        
+        <span class="sidecontent">   <i><img src="asset/film.png" alt=""></i> 
+            <span>Films</span>
+        </span>
+    
+        
+        <span class="sidecontent">   <i><img src="asset/console.png" alt=""></i> 
+            <span>Gaming</span>
+        </span>
+    
+        
+        <span class="sidecontent">   <i><img src="asset/radio.png" alt=""></i> 
+            <span>Live</span>
+        </span>
+        
+        <span class="sidecontent">   <i><img src="asset/mirror.png" alt=""></i> 
+            <span>Fashion & beauty</span>
+        </span>
+
+        
+        <span class="sidecontent">   <i><img src="asset/mortarboard.png" alt=""></i> 
+            <span>Learning</span>
+        </span>
+    
+        
+        <span class="sidecontent">   <i><img src="asset/running.png" alt=""></i> 
+            <span>Sport</span>
+        </span>
+    </div>
+
+
+    <div class="side">
+                   
+        <span class="sidecontent">   <i><img src="asset/settings.png" alt=""></i> 
+            <span>Settings</span>
+        </span>
+
+        
+        <span class="sidecontent">   <i><img src="asset/history.png" alt=""></i> 
+            <span>Report history</span>
+        </span>
+
+        
+        <span class="sidecontent">   <i><img src="asset/question.png" alt=""></i> 
+            <span>Help</span>
+        </span>
+
+        
+        <span class="sidecontent">   <i><img src="asset/good-review.png" alt=""></i> 
+            <span>Send feedback</span>
+        </span>
+        
+        
+
+        
+    </div>
+            
+            </div>
+           
+
+
+            <div class="videos">
+
+                <div class="navvi">
+                    <div>All</div>
+                    <div>CSS</div>
+                    <div id="js">JavaScript</div>
+                    <div>Tesla</div>
+                    <div>Masai School</div>
+                    <div>Cricket</div>
+                    <div>Football</div>
+                    <div id="m">Music</div>
+                    <div id="d">Dance</div>
+                </div>
+
+
+
+                <div id="result"></div>
+            </div>
+        
+</div>
+
+</body>
+
+</html>
+
+
+ 
+
+
+<script>
+
+
+document.getElementById("profile").addEventListener("click",()=>{
+    window.location.href="signup.html"
+})
+
+
+// let menu=   document.getElementById("m")
+//  menu.addEventListener("click",()=>{
+//    document.querySelector(".categories").style.width="250px"     
+//     })
+
+
+    let div=document.getElementById("result")
+let searchvideo=()=>{
+    
+    let b= document.getElementById("search").value
+
+    console.log(b)
+    getvideo(b)
+
+}
+document.getElementById("m").addEventListener("click",()=>{
+    getvideo(music)
+})
+
+
+    // https://www.youtube.com/watch?v=KXFmaE5B9E8
+
+
+    async function getvideo(x){
+        // console.log(x)
+    try{
+        
+        let d=await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${x}&type=video&key=AIzaSyCBP-UMP8Z8ZAgs-dvib9VPUPC9872xuHQ&maxResults=20`)
+        let c=await d.json()
+    
+       // console.log(c.items)
+    
+    
+        appendvideo(c.items)
+    }
+    catch(err){
+        console.log(err)
+    }
+    
+    }
+    
+    let data=[]
+    // function appendvideo(){}
+    // appendvideo=()=>{}
+    const appendvideo = (arr) =>{
+    div.innerHTML=null
+    
+        arr.forEach(({snippet,id:{videoId}})=>{
+    // console.log(ele.id.videoId)
+    
+    
+    // console.log(videoId,snippet)
+    
+    
+    // let iframe=document.createElement('iframe')
+    
+    // iframe.src=`https://www.youtube.com/embed/${videoId}`
+    // iframe.height="315"
+    // iframe.width="460"
+    // iframe.setAttribute("allowfullscreen","true")
+    
+    
+    let title=document.createElement("p")
+    title.innerText=snippet.title
+    
+    let tum=document.createElement("img")
+    tum.src=snippet.thumbnails.medium.url
+    
+    let divt=document.createElement("div")
+    divt.append(tum,title)
+    div.append(divt)
+    
+    
+    
+    
+    
+    let data_tosend={
+    
+        // snippet:snippet,
+        // videoId:videoId//when key value pair is same
+        snippet,
+        videoId
+        
+    
+    }
+    data.push(data_tosend)
+    divt.onclick=()=>{
+        showvideo(data_tosend,data)
+    }
+    
+    
+        })
+    
+    }
+    
+    let showvideo=(data1,dataall)=>{
+        localStorage.setItem("clicked_video",JSON.stringify(data1))
+        localStorage.setItem("all_video",JSON.stringify(dataall))
+        window.location.href="video.html"
+    }
+    
+    
+    </script>
+    
+    
+    <!-- <iframe width="560" height="315" src= title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
