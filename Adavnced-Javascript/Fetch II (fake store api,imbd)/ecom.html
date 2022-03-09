@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #user{
+
+            width: 80%;
+            margin: auto;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+
+            grid-gap: 5%;
+        }
+        img{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="user"></div>
+</body>
+</html>
+
+<script>
+
+let url="https://fakestoreapi.com/products"
+
+
+
+async function getuser(){
+try{
+    let res= await fetch(url)
+    let d= await res.json()
+
+    appendusers(d)
+console.log(d)
+}
+catch(err){
+    console.log("we're having troble")
+}
+}
+getuser()
+
+var adddiv=document.getElementById("user")
+
+
+function appendusers(users){
+
+    users.forEach(function(ele){
+let div=document.createElement('div')
+let img=document.createElement('img')
+img.src=ele.image
+
+let t= document.createElement('h1')
+
+t.innerText=ele.title
+
+let rate= document.createElement('h3')
+
+rate.innerText=ele.price
+
+
+let des= document.createElement('p')
+
+des.innerText=ele.description
+
+div.append(img,t,rate,des)
+
+adddiv.append(div)
+
+    })
+}
+</script>

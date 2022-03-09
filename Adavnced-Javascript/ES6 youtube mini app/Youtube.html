@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+
+    <style>
+        *{
+            width: 100%;
+            height: 200px;
+        }
+        #result{
+            display: grid;
+grid-template-columns: repeat(3,1fr);
+
+            grid-gap:8%
+        }
+    </style>
+</head>
+<body>
+
+    
+
+
+    <input type="text" id="search">
+    <button onclick="getvideo()">Search</button>
+
+    <div id="result"></div>
+</body>
+</html>
+
+<script>
+
+
+let div=document.getElementById("result")
+
+// https://www.youtube.com/watch?v=KXFmaE5B9E8
+async function getvideo(){
+try{
+    let x= document.getElementById("search").value
+    let d=await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${x}&type=video&key=AIzaSyCBP-UMP8Z8ZAgs-dvib9VPUPC9872xuHQ&maxResults=5`)
+    let c=await d.json()
+
+   // console.log(c.items)
+
+
+    appendvideo(c.items)
+}
+catch(err){
+    console.log(err)
+}
+
+}
+
+// function appendvideo(){}
+// appendvideo=()=>{}
+const appendvideo = (arr) =>{
+div.innerHTML=null
+
+    arr.forEach(({snippet,id:{videoId}})=>{
+// console.log(ele.id.videoId)
+
+
+console.log(videoId,snippet)
+
+
+// let iframe=document.createElement('iframe')
+
+// iframe.src=`https://www.youtube.com/embed/${videoId}`
+// iframe.height="315"
+// iframe.width="460"
+// iframe.setAttribute("allowfullscreen","true")
+
+
+let title=document.createElement("p")
+title.innerText=snippet.title
+
+let tum=document.createElement("img")
+tum.src=snippet.thumbnails.medium.url
+
+let divt=document.createElement("div")
+divt.append(tum,title)
+div.append(divt)
+
+
+
+
+
+let data_tosend={
+
+    // snippet:snippet,
+    // videoId:videoId//when key value pair is same
+    snippet,
+    videoId
+
+}
+
+divt.onclick=()=>{
+    showvideo(data_tosend)
+}
+
+
+    })
+
+}
+
+let showvideo=(data)=>{
+    localStorage.setItem("clicked_video",JSON.stringify(data))
+    window.location.href="video.html"
+}
+
+
+</script>
+
+
+<!-- <iframe width="560" height="315" src= title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->

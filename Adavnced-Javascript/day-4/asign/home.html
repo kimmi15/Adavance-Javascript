@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imbd</title>
+
+    <style>
+        *{
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        #nav{
+            width: 100%;
+            height: 100px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: flex-end;
+
+            align-items: center;
+
+        }
+        #nav>div{
+
+margin-right: 3%;
+font-size: 30px;
+        }
+
+#add{
+    
+    width: 80%;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 60px;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2%;
+
+    
+}
+
+#add>div{
+    width: 100%;
+    padding: 5px;
+    
+}
+#add>div>img{
+    width: 98%;
+    height: 520px;
+}
+    </style>
+</head>
+<body>
+    
+<div id="nav">
+
+    <div id="movies" >Movie</div>
+    <div id="low" onclick="sortlow()">Sort by low rating to high</div>
+    <div id="high" onclick="sorthigh()">Sort by high rating to low</div>
+   
+</div>
+
+<div id="add">
+
+</div>
+</body>
+</html>
+
+<script>
+
+let movie= JSON.parse(localStorage.getItem("movies"))
+
+let a=document.getElementById("add")
+showMovie(movie)
+
+function sortlow(){
+    movie.sort(function(a,b){
+        return Number(a.rating)-Number(b.rating)
+    })
+    showMovie(movie)
+
+}
+function sorthigh(){
+    movie.sort(function(a,b){
+        return -Number(a.rating)+Number(b.rating)
+    })
+    showMovie(movie)
+
+}
+
+function showMovie(m){
+    
+a.innerText=""
+m.map(function(e){
+
+
+let md=document.createElement("div")
+let img=document.createElement("img")
+
+img.src=e.src
+
+let t=document.createElement("h2")
+
+t.innerText="Name: "+e.title
+let y=document.createElement("h3")
+y.innerText="Year: "+e.year
+let r=document.createElement("h3")
+r.innerText="IMDB rating: "+ e.rating
+
+md.append(img,t,y,r)
+
+    a.append(md)
+
+})
+}
+</script>

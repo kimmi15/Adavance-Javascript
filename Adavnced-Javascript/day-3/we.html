@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // var s={
+    //     parent:"jetalal"
+    // }
+
+    // var a=Object.create(s)
+    // a.name="tappu"
+    // console.log(a)
+
+
+    // var cat={
+    //     type:"cat",
+    //     legs: 4,
+    //     tail:true,
+    //     fur:true,
+    // };
+
+    // let tiger=Object.create(cat)
+    // tiger.speed=90;
+    // console.log(tiger)
+
+    let shoes={
+        brand:"nike",
+        seller:"Myntra",
+        material:"leather",
+        type:"sneakers",
+    };
+
+    let s1=Object.create(shoes)
+    s1.price=2000;
+
+    console.log(s1.hasOwnProperty("seller"))
+    //it will chcek that the object is borrowing this property or has own property
+s1.seller="boat"
+    //it you give same key again itll return same pro
+
+
+// var arr=[1,2,3];
+// console.log(arr)
+
+
+// function newspaper(h){
+//     this.date= new Date()
+//     this.id=Math.round(Math.random()*100)
+//     this.heading=h
+//     this.publication="Hindustan"
+// }
+
+// let n1=new newspaper("India is all set to launch rover to moon")
+
+// newspaper.prototype.advertisment="tanishq jewellery"
+// console.log(n1)
+
+
+
+// let arr=[1,2,3]
+
+// let arr2= new Array(2,3,4,5,5,5)
+// console.log(arr2)
+
+
+
+
+function MyArray(){
+    this.length=arguments.length
+
+Object.defineProperty(this,"length",{
+    writable:true,
+    enumerable: false,
+})
+
+    for(let i=0;i<this.length;i++){
+        this[i]=arguments[i]
+    }
+}
+
+let masai_arr= new MyArray(1,2, 3,4,53)
+
+MyArray.prototype.p=function(x){
+    this[this.length]=x
+    this.length++
+}
+
+
+MyArray.prototype.po=function(){
+    delete this[this.length-1]
+
+    this.length--
+}
+masai_arr.p(999)
+masai_arr.po(999)
+masai_arr.p(956464599)
+
+console.log(Object.values(masai_arr))
+
+
+</script>

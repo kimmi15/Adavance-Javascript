@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #user{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+
+            grid-gap: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div id="user"></div>
+</body>
+</html>
+
+<script>
+
+let url="https://reqres.in/api/users"
+// fetch(url).then(function(res){
+
+
+//     return res.json()
+
+// })
+// .then(function(s){
+    
+// console.log(s.data)
+// })
+// .catch(function(err){
+//     console.log(err)
+// })
+
+
+async function getuser(){
+try{
+    let res= await fetch(url)
+    let data= await res.json()
+let users=data.data;
+    appendusers(users)
+console.log(data.data)
+}
+catch(err){
+    console.log("we're having troble")
+}
+}
+getuser()
+
+var adddiv=document.getElementById("user")
+function appendusers(users){
+
+    users.forEach(function(ele){
+let div=document.createElement('div')
+let img=document.createElement('img')
+img.src=ele.avatar
+
+let name= document.createElement('p')
+
+name.innerText=ele.first_name+" "+ele.last_name
+
+let email= document.createElement('p')
+
+email.innerText=ele.email
+
+div.append(img,name,email)
+
+adddiv.append(div)
+
+    })
+}
+</script>

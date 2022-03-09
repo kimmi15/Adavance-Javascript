@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="in" type="text">
+
+    <button id="sub">Submit</button>
+    <button id="toggle">toggle</button>
+
+    <div class="con"></div>
+</body>
+</html>
+
+<script>
+var b=false
+    document.querySelector("#toggle").addEventListener('click', function(){
+if(b){
+    b=false
+}
+else{
+    b=true
+}
+dis(b)   
+})
+
+document.querySelector('#sub').addEventListener('click' ,function(){dis(b)})
+
+function dis(t) {
+    
+var a=document.querySelector('#in').value
+console.log(a)
+document.querySelector ('.con').textContent=""
+var n1=new task(a,t)
+
+var l=document.createElement('li')
+var l1=document.createElement('ul')
+ l1.textContent=n1.name
+
+ var l2=document.createElement('ul')
+ l2.textContent=n1.status
+
+ var l3=document.createElement('ul')
+ l3.textContent=n1.date
+
+ l.append(l1,l2,l3)
+
+document.querySelector ('.con').append(l)
+
+
+
+}  
+
+function task(x,y){
+
+this.date=new Date()
+this.name=x
+this.status=y
+
+}
+</script>

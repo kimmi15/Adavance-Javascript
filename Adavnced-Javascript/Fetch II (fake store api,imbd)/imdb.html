@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imbd</title>
+
+    <style>
+        *{
+            margin: 0%;
+           
+            box-sizing: border-box; 
+        }
+        body{
+            background-color:#0f171e;
+        }
+        #mov{
+            width: 40%;
+            margin: auto;
+           display: flex;
+           
+           margin-top: 50px;
+        }
+
+        
+        #mov>:nth-child(2){
+            
+            padding: 10px;
+            color: whitesmoke;
+            font-family: sans-serif;
+            font-size: 22px;
+            padding-top: 0%;
+           
+        }
+        
+
+
+
+
+        #nav{
+            width: 100%;
+            display: flex;
+        background-color:#1a242e ;
+        justify-content: end;
+
+        height: 70px;
+    }
+    button,input{
+        background-color: #1a242e;
+        color: grey;
+        margin-top: 10px;
+        font-size: 21px;
+        padding-left: 9px;
+        padding-right: 9px;
+        height: 65%;
+        margin-right: 20px;
+      
+    }
+    h4{
+        background-color: teal;
+    }
+    </style>
+</head>
+<body>
+<div id="nav">
+    <input type="text" id="search" >
+    <button onclick="findmovie()" id="b">search</button>
+    
+</div>
+    <div id="mov"></div>
+</body>
+</html>
+
+<script>
+
+let d=document.getElementById("mov")
+let movie=[]|| JSON.parse(localStorage.setItem("movies"))
+async function findmovie(){
+try{
+    let x=document.getElementById("search").value
+
+
+    let movie= await fetch(`http://www.omdbapi.com/?t=${x}&apikey=c44a58d8`)
+    let s=await movie.json()
+    console.log(s)
+    appendm(s)
+}
+catch(err){
+    console.log("did'n find movie")
+
+}
+}
+
+function appendm(m){
+
+    d.innerText=""
+
+   
+if(m.Title){
+    let img=document.createElement("img")
+    img.src=m.Poster
+
+   let div=document.createElement("div")
+   div.append(img)
+// div.style.backgroundImage=`url(${m.Poster})`
+
+
+obj={
+    src:m.Poster,
+    title:m.Title,
+    year:m.Year,
+    rating:m.imdbRating,
+}
+console.log(obj)
+
+
+let h=document.createElement("h1")
+h.innerText="Title: "+m.Title
+
+
+let im=document.createElement("p")
+im.innerText="IMDB: "+m.imdbRating
+
+let y=document.createElement("p")
+y.innerText="Year: "+m.Year
+
+
+let p=document.createElement("p")
+p.innerText="Plot :"+m.Plot
+
+let a=document.createElement("h3")
+a.innerText="Cast :"+m.Actors
+
+
+
+movie.push(obj)
+
+localStorage.setItem("movies",JSON.stringify(movie))
+
+let div1=document.createElement("div")
+if(m.imdbRating>8.5){
+    let re=document.createElement("h4")
+    re.innerText="Recommended"
+    div1.append(re)
+}
+div1.append(h,a,y,im,p)
+d.append(div,div1)
+}
+else{
+
+    let div=document.createElement("div")
+    let img=document.createElement("img")
+    let h2=document.createElement("h2")
+    img.src="https://image.shutterstock.com/image-vector/pixel-art-icon-shows-error-260nw-721466296.jpg"
+h2.innerText="Movie Doesn't Exist"
+h2.style.color="white"
+
+    div.append(img,h2)
+    d.append(div)
+}
+}
+</script>

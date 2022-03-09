@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="in" type="text">
+
+    <button id="sub">Submit</button>
+
+    <div class="con"></div>
+</body>
+</html>
+
+<script>
+var n=document.querySelector('#in').value
+
+document.querySelector('#sub').addEventListener('click' ,function() {
+
+    document.querySelector ('.con').textContent=""
+    var n1=new task(n)
+    
+    var l=document.createElement('li')
+    var l1=document.createElement('ul')
+     l1.textContent=n1.name
+
+     var l2=document.createElement('ul')
+     l2.textContent=n1.status
+
+     var l3=document.createElement('ul')
+     l3.textContent=n1.date
+
+     l.append(l1,l2,l3)
+
+    document.querySelector ('.con').append(l)
+
+
+
+}  )
+
+function task(n){
+
+this.date=new Date()
+this.name=n
+this.status=false
+
+}
+</script>

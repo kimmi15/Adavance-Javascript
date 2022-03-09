@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <div id="main">
+
+    </div>
+
+</body>
+
+</html>
+
+<script type="module">
+
+    import navbar from "./components/navbar.js"
+    import getUser from "./scripts/getUsers.js"
+
+    let container = document.getElementById("container")
+    container.innerHTML = navbar()
+
+    let input = document.getElementById("search-input")
+
+    input.addEventListener("keypress", searchUsers)
+
+
+
+    async function searchUsers(event) {
+
+
+        if (event.key == "Enter") {
+
+            let query = input.value
+
+            let response = await getUser(query)
+
+            let { avatar_url } = response
+
+            getrepo(response.repos_url)
+
+            document.getElementById("profile-img").src = avatar_url
+
+            
+        }
+
+    }
+
+
+    async function getrepo(x) {
+
+        try {
+            // console.log(response)
+            let res = await fetch(x)
+            let repo_data = await res.json()
+            
+
+            appendrepo(repo_data)
+        }
+
+        catch (e) {
+            console.log(e)
+        }
+
+
+    }
+
+    let reopo_div=document.getElementById("main")
+function appendrepo(x){
+    reopo_div.innerHTML=""
+x.forEach((ele)=>{
+
+
+let n=document.createElement("p")
+n.innerText=ele.name
+ let l=document.createElement("p")
+ l.innerText=ele.language
+
+ let pu=document.createElement("p")
+
+ if(ele.private){
+pu.innerText="Private"
+ }
+ else{
+pu.innerText="Public"
+ }
+  let d=document.createElement("div")
+  let d2=document.createElement("div")
+
+d.append(n,pu)
+
+
+d2.append(d,l)
+
+reopo_div.append(d2)
+
+})
+    
+}
+
+</script>

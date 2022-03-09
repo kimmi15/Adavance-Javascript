@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let mymarks=100;
+    let parentPromise =new Promise(function(resolve,reject){
+        setTimeout(function(){
+            if(mymarks>90){
+                resolve("Laptop")
+            }
+            else{
+                reject("chappal")
+            }
+        },3000)
+    })
+
+
+    parentPromise.then(function(s){
+        console.log(s)
+    })
+
+    parentPromise.catch(function(s){
+        console.log(s)
+    })
+</script>

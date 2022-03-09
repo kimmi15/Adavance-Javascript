@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+//     function  nikepro(){
+//         let pro={
+//             name:"Sheos",
+//             price:1000,
+//         };
+
+//         return pro;
+//     }
+//     let p1=nikepro()
+//     console.log(p1)
+
+
+// function nike(u,n,p){
+//     this.user=u
+//     this.name=n
+//     this.price=p
+// }
+
+// let p2= new nike("vivek","nike",1000)
+// p2.s=89
+// console.log(p2)
+
+// function newspaper(h){
+//     this.date= new Date()
+//     this.id=Math.round(Math.random()*100)
+//     this.heading=h
+//     this.publication="Hindustan"
+// }
+
+// let n1=new newspaper("India is all set to launch rover to moon")
+// console.log(n1)
+// let a=[]
+// for(let i=0;i<20;i++){
+//     let n1=new newspaper("India is all set to launch rover to moon")
+// a.push(n1)
+// }
+// console.log(a)
+
+
+const kic={
+    name:"kit",
+    purpose:"food",
+    order:"meal",
+
+    cookfood(){
+        console.log(`serving ${this.order}`)
+    }
+
+
+}
+
+const bedroom={
+    name:"bed",
+    purpose:"sleeep",
+    order:"maggie"
+}
+
+const living={
+    name:"living",
+    purpose:"read",
+    order:"samaosa"
+}
+
+kic.cookfood()
+kic.cookfood.call(bedroom)
+// kic.cookfood.call(living)
+var x=kic.cookfood.bind(living)
+x()
+</script>

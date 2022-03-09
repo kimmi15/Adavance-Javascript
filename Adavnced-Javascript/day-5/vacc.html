@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button onclick="register()" id="reg">Register</button>
+</body>
+</html>
+
+<script>
+let queue=["pablo pandey","babu","jetalal","dickkckwe"]
+    
+
+function register(){
+let name=document.getElementById("name").value
+queue.push(name)
+
+
+let massage=`${name} your registration is sucessfull`
+
+alert(massage)
+
+let mypromise=new Promise(function(resolve,reject){
+   
+   setTimeout(function(){
+    if(queue[0]===name){
+        resolve(`${name} its your turn now`)
+    } 
+   },5000)
+
+   })
+
+   mypromise.then(function(r){
+       console.log(r)
+   })
+    
+
+
+}
+
+function startvacc(){
+    queue.shift()
+
+    if(queue.length==0){
+        clearInterval(id)
+    }
+
+    console.log(queue)
+}
+
+let id=setInterval(startvacc,3000)
+</script>
